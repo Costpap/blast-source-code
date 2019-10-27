@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const Commando = require(`discord.js-commando`);
 const botconfig = require(`../../botconfig.json`);
+const pkg = require('../../package.json')
 
 class help extends Commando.Command{
     constructor(client) {
@@ -18,14 +19,14 @@ else
 if(message.channel instanceof Discord.DMChannel) return
 else
 
-if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== true && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to cook.`)
+if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== true && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to view help.`)
 else
 
 var embed = new Discord.RichEmbed()
     .setTitle(`Help Command`,true)
     .addField(`Prefix`, `**${botconfig.prefix}**`,true)
     .addField(`Exclusive to`, `**${message.client.guilds.get(botconfig.server).name}**`,true)
-    .addField(`Version`, `**2.2.0**`)
+    .addField(`Version`, `**${pkg.version}**`)
     .addField(`Role required`, `<@&${message.guild.roles.get(botconfig.trustedroles).id}>`,true)
     .addBlankField()
     .addField(`**${botconfig.prefix}dice** <number>`, `Roll the dice.`, true)

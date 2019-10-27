@@ -1,4 +1,5 @@
 var config = require("../botconfig.json")
+var pkg = require('../package.json')
 module.exports = bot => {
     console.log(`${bot.user.username} is online`)
 
@@ -6,7 +7,7 @@ module.exports = bot => {
 
     let statuses = [
         `${config.prefix}help for help!`,
-        `Version 2.2.0`
+        `Version ${pkg.version}`
     ]
 setInterval(() => {     
 

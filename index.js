@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const Commando = require('discord.js-commando')
 const botconfig = require('./botconfig.json')
+const pkg = require('./package.json')
 
 var client = new Commando.Client({
     disableEveryone: true,
@@ -47,5 +48,5 @@ client.on('guildCreate', async (guild) => {
     if(msg.content !== `${botconfig.prefix}version`) return
     else
     msg.delete()
-    client.user.setActivity(`Version 2.2.0`, {type: "PLAYING"})
+    client.user.setActivity(`Version ${pkg.version}`, {type: "PLAYING"})
   })

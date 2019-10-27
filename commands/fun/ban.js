@@ -27,7 +27,7 @@ async run(message) {
   let banReason = args.slice(1).join(' ');  
 
   const user = message.mentions.members.first() || message.guild.members.get(args[0])
-  if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== true && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to cook.`)
+  if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== true && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to ban.`)
 else
 if(!user) return message.channel.send(`Invalid user!`).then(msg => {msg.delete(10000)}).then(message.delete(10)).catch(error => console.log(error));
 else
