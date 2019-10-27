@@ -8,7 +8,8 @@
         "bowls",
         "boredom",
         "laptops",
-        "stone"   
+        "stone",
+        "newspaper"
     ],
     "fail":[
         "wool",
@@ -19,6 +20,6 @@
         "dust",
         "cereal",
         "insults",
-        "door"    
+        "door"
     ]
 }
