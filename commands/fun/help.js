@@ -39,6 +39,8 @@ var embed = new Discord.RichEmbed()
     .addField(`**${botconfig.prefix}slap** <user>`, `Slap someone.`, true)
     .addField(`**${botconfig.prefix}help**`, `Shows this menu.`, true)
     .addField(`**${botconfig.prefix}cook** <user>`, `Cook someone.`, true)
+    .addField(`**${botconfig.prefix}ban** <user> <reason>`, `Ban someone.`, true)
+    .addField(`**${botconfig.prefix}kiss** <user>`, `Kiss someone.`, true)
     .setColor(`#f53220`)
     .setTimestamp()
 

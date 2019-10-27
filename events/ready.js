@@ -4,6 +4,15 @@ module.exports = bot => {
 
     bot.user.setStatus(`online`);
 
-    bot.user.setActivity(`a game called ${config.prefix}help`, {type: "PLAYING"})
+    let statuses = [
+        `${config.prefix}help for help!`,
+        `Version 2.1.0`
+    ]
+setInterval(() => {     
 
+    var status = statuses[Math.floor(Math.random() * statuses.length)]
+
+    bot.user.setActivity(status, {type: "PLAYING"})
+
+}, 10000);
 }
