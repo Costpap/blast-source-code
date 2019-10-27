@@ -18,13 +18,16 @@ else
 if(message.channel instanceof Discord.DMChannel) return message.channel.send(`Who are you going to hug in a DM channel?!`)
 else
 
-if(!message.member.roles.get(botconfig.trustedroles) && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to hug.`)
+if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== true && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to cook.`)
 else
 
 var args = message.content.split(' ').slice(1);
 var user = message.mentions.members.first() || message.guild.members.get(args[0])
 
 if(!user) return message.channel.send(`You need someone else to hug, please \`ping\` someone or use their \`ID\`!`)
+else
+
+if(user.id == message.client.user.id) return message.channel.send(`I'm sorry, \`body.js\` wasn't located.`)
 else
 
 if(user.id == message.author.id) return message.channel.send(`Look, I need to get this straight. You can't hug yourself.`)

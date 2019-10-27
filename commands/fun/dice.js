@@ -18,7 +18,7 @@ else
 if(message.channel instanceof Discord.DMChannel) return
 else
 
-if(!message.member.roles.get(botconfig.trustedroles) && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to roll the dice.`)
+if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== true && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to cook.`)
 else
 
 var num = message.content.split(' ').slice(1)[0]

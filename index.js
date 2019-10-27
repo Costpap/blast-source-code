@@ -42,3 +42,10 @@ client.on('guildCreate', async (guild) => {
     client.destroy()
      throw new Error(`Can't find the guild ID I was provided with! Shutting bot down.`)
   }else return})
+
+  client.on('message', async (msg) => {
+    if(msg.content !== `${botconfig.prefix}version`) return
+    else
+    msg.delete()
+    client.user.setActivity(`Version 2.2.0`, {type: "PLAYING"})
+  })
