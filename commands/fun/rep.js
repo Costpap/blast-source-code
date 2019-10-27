@@ -31,6 +31,9 @@ var user = message.mentions.members.first() || message.guild.members.get(args[0]
 if(!user) return message.channel.send(`You need someone to give a rep to, please \`ping\` someone or use their \`ID\`!`)
 else
 
+if(user.id == message.client.user.id) return message.channel.send(`I don't need rep.`)
+else
+
 if(user.id == message.author.id) return message.channel.send(`You can't rep yourself.`)
 else
 var stars = [
@@ -38,9 +41,23 @@ var stars = [
     `🌟🌟`,
     `🌟🌟🌟`,
     `🌟🌟🌟🌟`,
-    `🌟🌟🌟🌟🌟`
+    `🌟🌟🌟🌟🌟`,
+    `⭐`,
+    `⭐⭐`,
+    `⭐⭐⭐`,
+    `⭐⭐⭐⭐`,
+    `⭐⭐⭐⭐⭐`,
+    `✨`,
+    `✨✨`,
+    `✨✨✨`,
+    `✨✨✨✨`,
+    `✨✨✨✨✨`,
+    `💫`,
+    `💫💫`,
+    `💫💫💫`,
+    `💫💫💫💫`,
+    `💫💫💫💫💫`,
 ]
-
 var star = stars[Math.floor(Math.random() * stars.length)]
 
 message.channel.send(`<@${user.id}>, \`${message.author.tag}\` has decided to rep you! They gave ${star} star(s).`)

@@ -4,7 +4,7 @@ const botconfig = require('./botconfig.json')
 
 var client = new Commando.Client({
     disableEveryone: true,
-    owner: `${botconfig.prefix}`,
+    owner: `${botconfig.owner}`,
     unknownCommandResponse: false,
     commandPrefix: `${botconfig.prefix}`
 })

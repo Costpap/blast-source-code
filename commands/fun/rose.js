@@ -27,6 +27,9 @@ var user = message.mentions.members.first() || message.guild.members.get(args[0]
 if(!user) return message.channel.send(`You need someone to give a rose to, please \`ping\` someone or use their \`ID\`!`)
 else
 
+if(user.id == message.author.id) return message.channel.send(`\`holdobject.js\` wasn't located.`)
+else
+
 if(user.id == message.author.id) return message.channel.send(`You can't give yourself a rose.`)
 else
 var roses = [

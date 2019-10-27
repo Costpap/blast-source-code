@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const Commando = require(`discord.js-commando`);
 const botconfig = require(`../../botconfig.json`);
+const slaphelper = require(`../../phrases/slaphelper.json`)
 
 class slap extends Commando.Command{
     constructor(client) {
@@ -27,10 +28,15 @@ var user = message.mentions.members.first() || message.guild.members.get(args[0]
 if(!user) return message.channel.send(`You need someone else to slap, please \`ping\` someone or use their \`ID\`!`)
 else
 
+if(user.id == message.client.user.id) return message.channel.send(`I'm sorry, \`pain.js\` wasn't located.`)
+else
+
 if(user.id == message.author.id) return message.channel.send(`You can try to hit yourself all you want, but I'm keeping your hands from slapping yourself.`)
 else
 
-message.channel.send(`\`${message.author.tag}\` is slapping <@${user.id}>`)
+var object = slaphelper[Math.floor(Math.random() * slaphelper.length)]
+
+message.channel.send(`\`${message.author.tag}\` is slapping <@${user.id}> with ${object}!`)
 
 }}
 

@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const Commando = require(`discord.js-commando`);
 const botconfig = require(`../../botconfig.json`);
+const fighthelper = require(`../../phrases/fighthelper.json`);
 
 class fight extends Commando.Command{
     constructor(client) {
@@ -27,18 +28,18 @@ var user = message.mentions.members.first() || message.guild.members.get(args[0]
 if(!user) return message.channel.send(`You need someone else to fight, please \`ping\` someone or use their \`ID\`!`)
 else
 
+if(user.id == message.client.user.id) return message.channel.send(`I'm sorry, \`pain.js\` wasn't located.`)
+else
+
 if(user.id == message.author.id) return message.channel.send(`You can try to fight yourself all you want, but I'm keeping your hands from hitting yourself.`)
 else
 
+var good = fighthelper.good[Math.floor(Math.random() * fighthelper.good.length)] 
+var fail = fighthelper.fail[Math.floor(Math.random() * fighthelper.fail.length)] 
+
 var phrases = [
-    `So \`${message.author.tag}\` tried to fight <@${user.id}>... but they blocked them just in time!`,
-    `<@${user.id}> is getting hit by \`${message.author.tag}\`... with a laptop.`,
-    `\`${message.author.tag}\` was trying to fight <@${user.id}> but cried from onions \`${message.guild.members.random().user.tag}\` was peeling!`,
-    `\`${message.author.tag}\` was going to fight <@${user.id}> with cereal, but it wasn't that effective...`,
-    `<@${user.id}> is getting hit by \`${message.author.tag}\` with client mods.`,
-    `\`${message.author.tag}\` tried to fight <@${user.id}> but the coder was too lazy to think of an object.`,
-    `\`${message.author.tag}\` is hitting <@${user.id}> with tissues.`,
-    `<@${user.id}> is getting caught by \`${message.author.tag}\`'s fehlerjäger net!`
+    `<@${user.id}> is getting hit by \`${message.author.tag}\` with ${good}.`,
+    `\`${message.author.tag}\` tried to fight <@${user.id}> with ${fail} but it wasn't that good..`,
 ]
 
 var phrase = phrases[Math.floor(Math.random() * phrases.length)]

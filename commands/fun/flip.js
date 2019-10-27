@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const Commando = require(`discord.js-commando`);
 const botconfig = require(`../../botconfig.json`);
+const fliphelper = require(`../../phrases/fliphelper.json`)
 
 class flip extends Commando.Command{
     constructor(client) {
@@ -27,16 +28,20 @@ var user = message.mentions.members.first() || message.guild.members.get(args[0]
 if(!user) return message.channel.send(`You need someone to flip, please \`ping\` someone or use their \`ID\`!`)
 else
 
+if(user.id == message.client.user.id) return message.channel.send(`I'm sorry, but I'm not a physical object to flip.`)
+else
+
 if(user.id == message.author.id) return message.channel.send(`You need to break the laws of physics to flip yourself.`)
 else
 
+var good = fliphelper.good[Math.floor(Math.random() * fliphelper.good.length)]
+var bad = fliphelper.fail[Math.floor(Math.random() * fliphelper.fail.length)]
+
+console.log(good)
+
 var phrases = [
-    `\`${message.author.tag}\` flipped <@${user.id}> into a pile of client mods!`,
-    `<@${user.id}> was almost flipped by \`${message.author.tag}\` with flimsy cardboard!`,
-    `\`${message.author.tag}\` flipped <@${user.id}>'s table onto them!`,
-    `\`${message.author.tag}\` tossed their computer at <@${user.id}>!`,
-    `<@${user.id}> almost got flipped by \`${message.author.tag}\` but the coder was too lazy to think of an object.`,
-    `\`${message.author.tag}\` tossed <@${user.id}> a rickroll video.`
+    `\`${message.author.tag}\` flipped <@${user.id}> into a pile of ${good}!`,
+    `<@${user.id}> was almost flipped by \`${message.author.tag}\` with ${bad}!`,
 ]
 
 var phrase = phrases[Math.floor(Math.random() * phrases.length)]
