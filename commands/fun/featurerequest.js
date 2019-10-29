@@ -8,7 +8,8 @@ class fr extends Commando.Command{
             name: 'fr',
             group: 'fun',
             memberName: 'fr',
-            description: 'fr'
+            description: 'fr',
+            aliases: ['featurerequest']
         })
     }
 async run(message) {
@@ -18,7 +19,7 @@ else
 if(message.channel instanceof Discord.DMChannel) return
 else
 
-var req = message.content.split(' ').slice(1)[0]
+var req = message.content.slice(1)
 
 if(!req) return message.channel.send(`You need to put a request!`)
 else
@@ -38,7 +39,7 @@ else
 var embed = new Discord.RichEmbed()
     .setTitle(`New Feature Request`)
     .addField(`Requester`, `**${message.author}**`)
-    .addField(`Request`, `**${req}**`)
+    .setDescription(`${req}`)
     .setTimestamp()
 
  message.guild.members.get(`329023088517971969`).send(embed)

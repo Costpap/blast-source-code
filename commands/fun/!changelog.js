@@ -23,13 +23,9 @@ if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== tru
 else
 
 message.channel.send(`What's new in **${pkg.version}**
-${pkg.version}, the qt update. Files modified:
-• qt.js: IF you do ${botconfig.prefix}qt everyone, the bot will make an embed calling EVERYONE a qt!
-• rose.js: More rose RNG, check <https://imgur.com/a/WTylynY>.
-• index.js: Added debug command anyone has access to to do a thingy (doesn't affect user or guild).
-• package.json: Basically changed version string to 2.4.0.
-
-For past changelogs, please check the ||Github repo||`)
+${pkg.version}, the bake update. Files modified:
+• bake.js : bake someone
+• featurerequest.js : make it so that bot accepts all input instead of one word`)
 
 }}
 
