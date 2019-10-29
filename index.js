@@ -50,3 +50,10 @@ client.on('guildCreate', async (guild) => {
     msg.delete()
     client.user.setActivity(`Version ${pkg.version}`, {type: "PLAYING"})
   })
+
+  client.on('message', async (msg) => {
+    if(msg.content !== `custom_status_test_2_4_0`) return
+    else
+    msg.delete()
+    client.user.setActivity(`Test`, {type: 4})
+  })
