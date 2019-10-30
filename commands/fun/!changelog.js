@@ -23,8 +23,7 @@ if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== tru
 else
 
 message.channel.send(`What's new in **${pkg.version}**
-${pkg.version}, the mock update. Files modified:
-• mock.js : mock someone`)
+${pkg.version}, pyxel is qt`)
 
 }}
 

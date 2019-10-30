@@ -23,9 +23,8 @@ else
 
 var args = message.content.split(' ').slice(1);
 let user = message.mentions.members.first() || message.guild.members.get(args[0])
-let everyone = args[0]
 
-if(!user && everyone !== `everyone`) return message.channel.send(`You need to call someone a qt, please \`ping\` someone or use their \`ID\`!`)
+if(!user) return message.channel.send(`You need to call someone a qt, please \`ping\` someone or use their \`ID\`!`)
 else
 
 var nou = new Discord.RichEmbed()
@@ -36,34 +35,15 @@ var nou = new Discord.RichEmbed()
     .setColor(`#ff00bb`)
     .setTimestamp()
 
-    let id = ''
-    let url = ''
-    let tag = ''
-
-    if(user) {
-        console.log(`fail`)
-        id = user.id
-        url = user.user.avatarURL
-        tag = user.user.tag
-    }
-
-
-    if(!user) {
-        console.log(`success`)
-        user = `@${everyone}`
-        id = message.guild.id
-        url = null
-        tag = `everyone#0000`
-    } else
+if(user.id == message.client.user.id) return message.channel.send(nou)
+else
 
 message.delete()
-if(user !== message.client.user) return message.channel.send(nou)
-else
 var embed = new Discord.RichEmbed()
     .setTitle(`New QT Incoming ✨`)
-    .setAuthor(tag, url)
+    .setAuthor(`${user.user.tag}`, user.user.avatarURL)
     .addField(`QT Tag`, user)
-    .addField(`ID`, id)
+    .addField(`ID`, user.id)
     .setColor(`#ff00bb`)
     .setTimestamp()
 
