@@ -23,9 +23,8 @@ if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== tru
 else
 
 message.channel.send(`What's new in **${pkg.version}**
-${pkg.version}, the bake update. Files modified:
-• bake.js : bake someone
-• featurerequest.js : make it so that bot accepts all input instead of one word`)
+${pkg.version}, the mock update. Files modified:
+• mock.js : mock someone`)
 
 }}
 
