@@ -1,0 +1,13 @@
+{
+    "token": "token",
+    "id": "bot id",
+
+    "owner": "owner id",
+
+    "prefix": "pre",
+    "server": "guild id",
+
+    "trustedroles": ["role id","role id"],
+
+    "dmfrquest":["user id"]
+}
