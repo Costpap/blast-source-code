@@ -8,7 +8,11 @@ class dice extends Commando.Command{
             name: 'dice',
             group: 'fun',
             memberName: 'dice',
-            description: 'dice'
+            description: 'dice',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

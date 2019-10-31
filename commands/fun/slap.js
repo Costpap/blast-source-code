@@ -9,7 +9,11 @@ class slap extends Commando.Command{
             name: 'slap',
             group: 'fun',
             memberName: 'slap',
-            description: 'slap'
+            description: 'slap',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

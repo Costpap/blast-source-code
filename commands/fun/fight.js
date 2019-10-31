@@ -9,7 +9,11 @@ class fight extends Commando.Command{
             name: 'fight',
             group: 'fun',
             memberName: 'fight',
-            description: 'fight'
+            description: 'fight',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

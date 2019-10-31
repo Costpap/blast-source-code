@@ -8,7 +8,11 @@ class kill extends Commando.Command{
             name: 'kill',
             group: 'fun',
             memberName: 'kill',
-            description: 'it\'s not as bad as it sounds.'
+            description: 'it\'s not as bad as it sounds.',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

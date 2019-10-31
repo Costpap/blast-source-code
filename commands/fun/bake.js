@@ -9,7 +9,11 @@ class bake extends Commando.Command{
             name: 'bake',
             group: 'fun',
             memberName: 'bake',
-            description: 'bake'
+            description: 'bake',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

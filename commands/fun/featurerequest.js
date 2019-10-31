@@ -9,7 +9,11 @@ class fr extends Commando.Command{
             group: 'fun',
             memberName: 'fr',
             description: 'fr',
-            aliases: ['featurerequest']
+            aliases: ['featurerequest'],
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

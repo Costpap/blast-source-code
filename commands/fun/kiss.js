@@ -8,7 +8,11 @@ class kiss extends Commando.Command{
             name: 'kiss',
             group: 'fun',
             memberName: 'kiss',
-            description: 'kiss'
+            description: 'kiss',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

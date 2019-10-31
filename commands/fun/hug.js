@@ -8,7 +8,11 @@ class hug extends Commando.Command{
             name: 'hug',
             group: 'fun',
             memberName: 'hug',
-            description: 'hug'
+            description: 'hug',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

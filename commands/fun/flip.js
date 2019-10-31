@@ -9,7 +9,11 @@ class flip extends Commando.Command{
             name: 'flip',
             group: 'fun',
             memberName: 'flip',
-            description: 'flip'
+            description: 'flip',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {

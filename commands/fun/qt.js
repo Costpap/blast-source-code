@@ -8,7 +8,11 @@ class qt extends Commando.Command{
             name: 'qt',
             group: 'fun',
             memberName: 'qt',
-            description: 'qt'
+            description: 'qt',
+            throttling:{
+                usages: 2,
+                duration: 10
+            }
         })
     }
 async run(message) {
