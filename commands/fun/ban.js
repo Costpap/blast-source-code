@@ -31,8 +31,6 @@ async run(message) {
 else
 if(!user) return message.channel.send(`Invalid user!`).then(msg => {msg.delete(10000)}).then(message.delete(10)).catch(error => console.log(error));
 else
-if(user.id === message.member.id) return message.channel.send(`You can't ban yourself.`).then(msg => {msg.delete(10000)}).then(message.delete(10)).catch(error => console.log(error));
-else
 if(user.id === message.client.user.id) return message.channel.send(`You can't ban me.`).then(msg => {msg.delete(10000)}).then(message.delete(10)).catch(error => console.log(error));
 else
 

@@ -23,7 +23,8 @@ if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== tru
 else
 
 message.channel.send(`What's new in **${pkg.version}**
-${pkg.version}, pyxel is qt`)
+${pkg.version}, Kill update:
+• Kill.js : kill someone with a random minecraft death message.`)
 
 }}
 
