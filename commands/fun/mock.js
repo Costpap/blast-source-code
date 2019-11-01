@@ -17,6 +17,9 @@ class mock extends Commando.Command{
     }
 async run(message) {
 
+message.react(`⚠`)
+
+/*
 if(message.author.bot) return 
 else
 if(message.channel instanceof Discord.DMChannel) return 
@@ -49,7 +52,7 @@ await hook.edit(name, user.user.avatarURL).catch(error => console.log(error))
 
 hook.send(text).then(async (m)  => {m.delete()}, 20000)
 await hook.delete()
-
+*/
 }}
 
 module.exports = mock;

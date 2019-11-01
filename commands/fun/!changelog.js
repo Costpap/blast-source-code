@@ -23,8 +23,8 @@ if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== tru
 else
 
 message.channel.send(`What's new in **${pkg.version}**
-${pkg.version}, Ratelimiting:
-• Added ratelimiting to some commands: 2 usages every 10 seconds. (Except the following: ${botconfig.prefix}mock (1 usage every 15 seconds), and ${botconfig.prefix}rep (1 usage every 24 hours.))`)
+${pkg.version}, Unsupported Command:
+• Unsupported the "mock" command.`)
 
 }}
 
