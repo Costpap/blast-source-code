@@ -16,7 +16,6 @@ class kill extends Commando.Command{
         })
     }
 async run(message) {
-
 if(message.author.bot) return message.channel.send(`I'm sorry, but two bots killing each other are NOT a thing! (They are but for me, no...)`)
 else
 if(message.channel instanceof Discord.DMChannel) return message.channel.send(`Who are you going to kill in a DM channel?!`)

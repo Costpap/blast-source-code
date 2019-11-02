@@ -23,8 +23,9 @@ if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== tru
 else
 
 message.channel.send(`What's new in **${pkg.version}**
-${pkg.version}, Unsupported Command:
-• Unsupported the "mock" command.`)
+${pkg.version},
+• Let anyone view the help command.
+• Might unsupport kill command in the future`)
 
 }}
 
