@@ -52,8 +52,20 @@ client.on('guildCreate', async (guild) => {
   })
 
   client.on('message', async (msg) => {
-    if(msg.content !== `custom_status_test_2_4_0`) return
+    if(msg.author.bot) return
     else
-    msg.delete()
-    client.user.setActivity(`Test`, {type: 4})
+    if(!msg.content.includes(`@someone`)) return
+    else
+    if(msg.channel instanceof Discord.DMChannel) return
+    else
+    var content = msg.content
+    let count = (content.match(/\@someone+/g) || []).length;
+    console.log(count)
+    if(count > 6 ) return
+    else
+    while (count > 0) {
+      count--
+      msg.channel.send(`\`${msg.guild.members.random().user.tag}\``)
+    }
+  
   })

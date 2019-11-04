@@ -24,8 +24,8 @@ else
 
 message.channel.send(`What's new in **${pkg.version}**
 ${pkg.version},
-• Let anyone view the help command.
-• Might unsupport kill command in the future`)
+• Help command major revamp.
+• Added @someone...`)
 
 }}
 
