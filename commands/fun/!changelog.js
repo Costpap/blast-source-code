@@ -24,8 +24,7 @@ else
 
 message.channel.send(`What's new in **${pkg.version}**
 ${pkg.version},
-• Help command major revamp.
-• Added @someone...`)
+• Yell and Nerdpole`)
 
 }}
 

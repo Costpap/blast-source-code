@@ -8,7 +8,7 @@ class help extends Commando.Command{
         super(client, {
             name: 'help',
             group: 'fun',
-            memberName: 'help',
+            memberName: '!help',
             description: 'help'
         })
     }
@@ -55,6 +55,8 @@ var embed = new Discord.RichEmbed()
     .addField(`**${botconfig.prefix}cook** <user>`, `Cook someone.`, true)
     .addField(`**${botconfig.prefix}ban** <user> <reason>`, `Ban someone.`, true)
     .addField(`**${botconfig.prefix}bake** <user>`, `Bake someone.`, true)
+    .addField(`**${botconfig.prefix}yell** <user>`, `Yell at someone.`, true)
+    .addField(`**${botconfig.prefix}nerdpole** <user>`, `Call someone a nerdpole.`, true)
     .addField(`**${botconfig.prefix}changelog**`, `Changelog for the bot!.`, true)
     .setColor(`#f53220`)
     .setTimestamp()
