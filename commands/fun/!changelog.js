@@ -24,7 +24,9 @@ else
 
 message.channel.send(`What's new in **${pkg.version}**
 ${pkg.version},
-• Yell and Nerdpole`)
+• Add and remove users from a feature request list.
+• Check user's rep
+• I don't know`)
 
 }}
 

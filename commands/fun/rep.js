@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const Commando = require(`discord.js-commando`);
 const botconfig = require(`../../botconfig.json`);
+const fs = require("file-system");
 
 class rep extends Commando.Command{
     constructor(client) {
@@ -16,6 +17,8 @@ class rep extends Commando.Command{
         })
     }
 async run(message) {
+
+    let replist = JSON.parse(fs.readFileSync("./commandhelper/rep.json", "utf8"))
 
 if(message.author.bot) return message.channel.send(`I'm sorry, giving rep to bots are NOT a thing!`)
 else
@@ -38,29 +41,29 @@ if(user.id == message.author.id) return message.channel.send(`You can't rep your
 else
 var stars = [
     `🌟`,
-    `🌟🌟`,
-    `🌟🌟🌟`,
-    `🌟🌟🌟🌟`,
-    `🌟🌟🌟🌟🌟`,
     `⭐`,
-    `⭐⭐`,
-    `⭐⭐⭐`,
-    `⭐⭐⭐⭐`,
-    `⭐⭐⭐⭐⭐`,
     `✨`,
-    `✨✨`,
-    `✨✨✨`,
-    `✨✨✨✨`,
-    `✨✨✨✨✨`,
     `💫`,
-    `💫💫`,
-    `💫💫💫`,
-    `💫💫💫💫`,
-    `💫💫💫💫💫`,
+    `☄️`
 ]
 var star = stars[Math.floor(Math.random() * stars.length)]
 
-message.channel.send(`<@${user.id}>, \`${message.author.tag}\` has decided to rep you! They gave ${star} star(s).`)
+if(!replist[user.id]) replist[user.id] = {
+    count: 0,
+    lastcount: 0,
+    prevrep: message.author.id,
+}
+
+
+replist[user.id].count++;
+replist[user.id].prevrep = message.author.id
+replist[user.id].lastcount = replist[user.id].count
+
+fs.writeFile("./commandhelper/rep.json", JSON.stringify(replist, null, `\t`),(err) => {
+    if(err) console.log(err);
+});
+
+message.channel.send(`<@${user.id}>, \`${message.author.tag}\` has decided to rep you! They gave a ${star}.`)
 
 }}
 

@@ -12,8 +12,9 @@ class bake extends Commando.Command{
             description: 'bake',
             throttling:{
                 usages: 2,
-                duration: 10
-            }
+                duration: 10,
+            },
+
         })
     }
 async run(message) {

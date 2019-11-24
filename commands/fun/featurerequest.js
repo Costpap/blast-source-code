@@ -1,6 +1,6 @@
 const Discord = require(`discord.js`);
 const Commando = require(`discord.js-commando`);
-const botconfig = require(`../../botconfig.json`);
+const frusers = require('../../frusers.json')
 
 class fr extends Commando.Command{
     constructor(client) {
@@ -9,10 +9,9 @@ class fr extends Commando.Command{
             group: 'fun',
             memberName: 'fr',
             description: 'fr',
-            aliases: ['featurerequest'],
             throttling:{
-                usages: 2,
-                duration: 10
+                usages: 1,
+                duration: 20
             }
         })
     }
@@ -44,9 +43,9 @@ var embed = new Discord.RichEmbed()
     .setDescription(`${req}`)
     .setTimestamp()
 
-if(botconfig.dmfrquest.size == 0) return message.channel.send(`No users detected, request @ <https://github.com/NoNoTeal/blast-source-code/issues>`)
+if(fr.size == 0) return message.channel.send(`No users detected, request @ <https://github.com/NoNoTeal/blast-source-code/issues>`)
 
-botconfig.dmfrquest.forEach(async (id)  => {
+frusers.forEach(async (id)  => {
     var user = message.guild.members.get(id)
     if(!user) return
     else

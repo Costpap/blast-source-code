@@ -21,7 +21,7 @@ client.registry.registerDefaultCommands({
   help: false,
   prefix: false,
   eval_: false,
-  ping: false
+  ping: true
 });
 client.registry.registerCommandsIn(__dirname + "/commands");
 
