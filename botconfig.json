@@ -7,7 +7,5 @@
     "prefix": "pre",
     "server": "guild id",
 
-    "trustedroles": ["role id","role id"],
-
-    "dmfrquest":["user id"]
+    "trustedroles": ["role id","role id"]
 }
