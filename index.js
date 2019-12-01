@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 const Commando = require('discord.js-commando')
 const botconfig = require('./botconfig.json')
 const pkg = require('./package.json')
+const emojis = require('./commandhelper/emojis.json')
+const fs = require('fs');
 
 var client = new Commando.Client({
     disableEveryone: true,
@@ -68,4 +70,53 @@ client.on('guildCreate', async (guild) => {
       msg.channel.send(`\`${msg.guild.members.random().user.tag}\``)
     }
   
+  })
+
+  client.on('ready', async () => {
+    
+    if(!botconfig.server) return
+    if(!client.guilds.get(botconfig.server).channels.get(botconfig.reactionarychannel)) return
+    else
+var c = client.guilds.get(botconfig.server).channels.get(botconfig.reactionarychannel)
+    setInterval(async () => {
+      let gamer = JSON.parse(fs.readFileSync("./commandhelper/reactionary.json", "utf8"))
+
+      let shuffled = emojis.sort(() => 0.5 - Math.random());
+      let selected = shuffled.slice(0, 5);
+      let correct = selected[Math.floor(Math.random() * selected.length)]
+
+      var game = await c.send(`React with one of these 5 emotes: ${selected.join(`, `)}`)
+      if(!gamer.globalgame) gamer.globalgame = 0
+      else
+      
+      gamer.globalgame++;
+      fs.writeFile("./commandhelper/reactionary.json", JSON.stringify(gamer, null, `\t`),(err) => {
+        if(err) console.log(err);
+    });
+      var filter = (reaction) => reaction.emoji.name === correct
+      var collecter = await game.createReactionCollector(filter, { time: 60000 })
+
+
+
+      collecter.on('collect', async(r) => {
+        c.send(`It seems <@${r.users.first().id}> has won! (Correct emote: ${correct})`)
+
+        if(!gamer[r.users.first().id]) gamer[r.users.first().id] = 0
+        else
+        gamer[r.users.first().id]++;
+        fs.writeFile("./commandhelper/reactionary.json", JSON.stringify(gamer, null, `\t`),(err) => {
+          if(err) console.log(err);
+      });
+        collecter.stop()
+
+    })
+      collecter.on('end', () => {
+        game.edit(`~~React with one of these 5 emotes: ${selected.join(`, `)}, ~~Correct Emoji: ${correct}.`)
+        setTimeout(() => {
+          if(game.deleted !== false) return
+          else
+          game.delete()
+        }, 120000);
+      })
+    }, 3.6e+6);
   })

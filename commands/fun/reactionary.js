@@ -3,13 +3,13 @@ const Commando = require(`discord.js-commando`);
 const botconfig = require(`../../botconfig.json`);
 const fs = require("file-system");
 
-class repcheck extends Commando.Command{
+class reactionarycheck extends Commando.Command{
     constructor(client) {
         super(client, {
-            name: 'repcheck',
+            name: 'reactionarycheck',
             group: 'fun',
-            memberName: 'repcheck',
-            description: 'repcheck',
+            memberName: 'reactionarycheck',
+            description: 'reactionarycheck',
             throttling:{
                 usages: 1,
                 duration: 10
@@ -18,9 +18,9 @@ class repcheck extends Commando.Command{
     }
 async run(message) {
 
-    let replist = JSON.parse(fs.readFileSync("./commandhelper/rep.json", "utf8"))
+    let reactionary = JSON.parse(fs.readFileSync("./commandhelper/reactionary.json", "utf8"))
 
-if(message.channel instanceof Discord.DMChannel) return message.channel.send(`Who are you going to give a rep to in a DM channel?!`)
+if(message.channel instanceof Discord.DMChannel) return message.channel.send(`?????????`)
 else
 
 if(message.member.roles.some(r => botconfig.trustedroles.includes(r.id)) !== true && botconfig.trustedroles !== null && !message.member.hasPermission(['ADMINISTRATOR'])) return message.channel.send(`Hmm, doesn't seem you have the role required to rep.`)
@@ -34,23 +34,25 @@ else
 
 if(user.id == message.client.user.id) return message.channel.send(`
 \`\`\`json
-Rep for ${message.client.user.tag}
+Reactionary Stats for ${message.client.user.tag}
 
-Total rep: Yes
-Last rep: Wumpus#0000
+Wins/Total Games: ${reactionary.globalgame / reactionary.globalgame}
+Wins: ∞
+Total Games: ${reactionary.globalgame}
 \`\`\``)
 else
 
-if(!replist[user.id]) return message.channel.send(`User has no rep.`)
+if(!reactionary[user.id]) return message.channel.send(`User has no rep.`)
 
 message.channel.send(`
 \`\`\`json
-Rep for ${user.user.tag}
+Reactionary Stats for ${user.user.tag}
 
-Total rep: ${replist[user.id].count}
-Last rep: ${message.guild.members.get(replist[user.id].prevrep).user.tag}
+Wins/Total Games: ${[reactionary[user.id] / reactionary.globalgame].slice(0, 7)}
+Wins: ${reactionary[user.id]}
+Total Games: ${reactionary.globalgame}
 \`\`\``)
 
 }}
 
-module.exports = repcheck;
+module.exports = reactionarycheck;

@@ -9,5 +9,5 @@
 
     "trustedroles": ["role id","role id"],
 
-    "dmfrquest":["user id"]
+    "reactionarychannel":"channelid"
 }
