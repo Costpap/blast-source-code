@@ -15,8 +15,6 @@ The source code for Blast in the Bug Hunter Chill Chat Discord
 
 ## Somemore Information
 
-> npm i discord.js --save
-
-> npm i discord.js-commando --save
+> npm i
 
 * Node Version 10.8.0+ is needed (I guess)
