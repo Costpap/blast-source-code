@@ -42,7 +42,7 @@ Total Games: ${reactionary.globalgame}
 \`\`\``)
 else
 
-if(!reactionary[user.id]) return message.channel.send(`User has no rep.`)
+if(!reactionary[user.id]) return message.channel.send(`User has never played.`)
 
 message.channel.send(`
 \`\`\`json
