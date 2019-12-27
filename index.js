@@ -1,18 +1,12 @@
-const Discord = require('discord.js')
-const Commando = require('discord.js-commando')
-const botconfig = require('./botconfig.json')
-const pkg = require('./package.json')
-const emojis = require('./commandhelper/emojis.json')
-const fs = require('fs');
-
+var Discord = require('discord.js')
+var Commando = require('discord.js-commando')
+var botconfig = require('./botconfig.json')
 var client = new Commando.Client({
     disableEveryone: true,
     owner: `${botconfig.owner}`,
     unknownCommandResponse: false,
     commandPrefix: `${botconfig.prefix}`
 })
-
-client.login(botconfig.token)
 
 require("./util/eventhandler")(client)
 client.registry.registerGroup('fun', 'Fun');
@@ -21,12 +15,15 @@ client.registry.registerDefaultTypes()
 client.registry.registerDefaultGroups();
 client.registry.registerDefaultCommands({
   help: false,
-  prefix: false,
+  prefix: true,
   eval_: false,
   ping: true
 });
+const pkg = require('./package.json')
+const emojis = require('./commandhelper/emojis.json')
+const fs = require('fs');
 client.registry.registerCommandsIn(__dirname + "/commands");
-
+  client.login(botconfig.token)
 client.on('guildCreate', async (guild) => {
     if(client.guilds.size > 1) {
      guild.leave()

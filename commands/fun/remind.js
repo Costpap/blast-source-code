@@ -55,21 +55,24 @@ switch (tb) {
     case 'w':
         time = time * 1000 * 60 * 60 * 24 * 7;
         break
+    case 'y':
+        time = time * 1000 * 60 * 60 * 24 * 365
+        break
 	default:
 		time = time * 1000;
 		break;
 }
 
-if(time > 2147483647) return message.channel.send(`This value is too high! Please go a little lower!`)
-else
-
 message.delete()
 message.channel.send(`📌 Ok, now reminding you in **${args[0]}** to do ${reason}. Please enable DM's in this server to recieve your reminder.`)
 
-setTimeout(() => {
+var int = setInterval(() => {
+    time--;
+    if(time !== 0) {
     message.author.send(`**You have been reminded to:** ${reason}, this was delayed by ${args[0]}`)
-}, time);
-
+    }
+}, 1000);
+clearInterval(int)
 
 
 }}
