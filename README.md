@@ -1,3 +1,5 @@
+# NOTE: I do not own any of the code found in this repository. The original one was renamed, and as such, My fork now became the "original" repository. All rights go to their respective owners. You may find the original one [here](https://github.com/NoNoTeal/congratulation).
+
 # blast-source-code
 The source code for Blast in the Bug Hunter Chill Chat Discord
 
